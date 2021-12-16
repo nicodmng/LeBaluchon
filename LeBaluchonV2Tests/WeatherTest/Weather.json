@@ -1,0 +1,83 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": 6.1667,
+                "lat": 46.1667
+            },
+            "sys": {
+                "country": "CH",
+                "timezone": 3600,
+                "sunrise": 1639292932,
+                "sunset": 1639324172
+            },
+            "weather": [
+                {
+                    "id": 802,
+                    "main": "Clouds",
+                    "description": "scattered clouds",
+                    "icon": "03n"
+                }
+            ],
+            "main": {
+                "temp": 0.57,
+                "feels_like": 0.57,
+                "temp_min": -2.29,
+                "temp_max": 2.22,
+                "pressure": 1029,
+                "humidity": 96
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 0.51,
+                "deg": 280
+            },
+            "clouds": {
+                "all": 40
+            },
+            "dt": 1639329063,
+            "id": 2660645,
+            "name": "Canton of Geneva"
+        },
+        {
+            "coord": {
+                "lon": -73.9662,
+                "lat": 40.7834
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -18000,
+                "sunrise": 1639311066,
+                "sunset": 1639344513
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ],
+            "main": {
+                "temp": 7.96,
+                "feels_like": 4.78,
+                "temp_min": 6.46,
+                "temp_max": 9.27,
+                "pressure": 1020,
+                "humidity": 36
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 5.66,
+                "deg": 270
+            },
+            "clouds": {
+                "all": 1
+            },
+            "dt": 1639328836,
+            "id": 5125771,
+            "name": "Manhattan"
+        }
+    ]
+}
