@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		442A7CE9276B3ACF00E19436 /* UIView+BorderCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A7CE8276B3ACF00E19436 /* UIView+BorderCorner.swift */; };
 		443FE14F27463C66007ADD08 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FE14E27463C66007ADD08 /* WeatherService.swift */; };
 		443FE15127463EFF007ADD08 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FE15027463EFF007ADD08 /* WeatherData.swift */; };
 		44602513274541B4007F224E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44602512274541B4007F224E /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		442A7CE8276B3ACF00E19436 /* UIView+BorderCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderCorner.swift"; sourceTree = "<group>"; };
 		443FE14E27463C66007ADD08 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		443FE15027463EFF007ADD08 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		4460250F274541B4007F224E /* LeBaluchonV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchonV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 			children = (
 				44DD1CFB27608FB40036948D /* Generic.swift */,
 				44DD1CFD2760B1360036948D /* Alert.swift */,
+				442A7CE8276B3ACF00E19436 /* UIView+BorderCorner.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442A7CE9276B3ACF00E19436 /* UIView+BorderCorner.swift in Sources */,
 				44B5A3E627454559004783A2 /* ExchangeService.swift in Sources */,
 				44F8DF9F274550E100E3BD26 /* WeatherViewController.swift in Sources */,
 				44DD1CFE2760B1360036948D /* Alert.swift in Sources */,

@@ -7,12 +7,12 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Welcome: Decodable {
     let list: [List]
 }
 
 // MARK: - List
-struct List: Codable {
+struct List: Decodable {
     let coord: Coord
     let sys: Sys
     let weather: [Weather]

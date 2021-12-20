@@ -5,12 +5,12 @@
 //  Created by Nicolas Demange on 19/11/2021.
 //
 
-import Foundation
 import UIKit
 
 class TranslateViewController: UIViewController {
     
     // MARK: - IBOutlets & IBActions
+    
     @IBOutlet weak var translationButton: UIButton!
     
     @IBOutlet weak var userTextView: UITextView!
@@ -20,9 +20,11 @@ class TranslateViewController: UIViewController {
     
     @IBAction func translateButtonPressed(_ sender: Any) {
         getDataTranslate()
+        translationButton.isEnabled = false
     }
     
     // MARK: - Let & Var
+    
     var serviceTranslate = TranslateService()
     var traduction: String?
     
@@ -55,6 +57,7 @@ class TranslateViewController: UIViewController {
     ]
         
     // MARK: - Override
+    
     // Keyboard disappear
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         userTextView.resignFirstResponder()
@@ -68,26 +71,29 @@ class TranslateViewController: UIViewController {
     }
     
     // MARK: - Functions
-    func getDataTranslate() {
-        self.serviceTranslate.getTranslate(text: userTextView.text, languageCodeTarget: currentLanguageValue) { result in DispatchQueue.main.async {
+    
+    private func getDataTranslate() {
+        self.serviceTranslate.getTranslate(text: userTextView.text, languageCodeTarget: currentLanguageValue) { [weak self] result in DispatchQueue.main.async {
             switch result {
             case .success(let translate):
-                self.traduction = translate.translations[0].text
-                self.resultTextView.text = self.traduction
+                self?.traduction = translate.translations[0].text
+                self?.resultTextView.text = self?.traduction
+                self?.translationButton.isEnabled = true
             case .failure(let error):
-                self.showAlert(message: error.description)
+                self?.showAlert(message: error.description)
                 }
             }
         }
+        
     }
     
-    func placeholderText() {
-        userTextView.text = "Saisissez votre text en français ici..."
+    private func placeholderText() {
+        userTextView.text = "Saisissez votre text en français ici"
         userTextView.textColor = UIColor.lightGray
-        userTextView.font = UIFont.italicSystemFont(ofSize: 14)
+        userTextView.font = UIFont.italicSystemFont(ofSize: 20)
     }
     
-    func textViewDidBeginEditing(_ userTextView: UITextView) {
+    private func textViewDidBeginEditing(_ userTextView: UITextView) {
         if userTextView.textColor == UIColor.lightGray {
             userTextView.text = nil
             userTextView.textColor = UIColor.black
@@ -96,6 +102,8 @@ class TranslateViewController: UIViewController {
     
 }
 //End of class
+
+// MARK: - Extensions
 
 extension TranslateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     

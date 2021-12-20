@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExchangeRate: Codable {
+struct ExchangeRate: Decodable {
     let rates: [String: Double]
 }
 

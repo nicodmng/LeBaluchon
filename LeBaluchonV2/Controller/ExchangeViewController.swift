@@ -5,12 +5,12 @@
 //  Created by Nicolas Demange on 17/11/2021.
 //
 
-import Foundation
 import UIKit
 
 class ExchangeViewController: UIViewController {
     
     // MARK: - IBOutlet & IBAction
+    
     @IBOutlet weak var euroText: UITextField!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -23,24 +23,26 @@ class ExchangeViewController: UIViewController {
     }
     
     //MARK: - Let & Var
-    var serviceRate: ExchangeService!
+    
+    private var serviceRate: ExchangeService!
     
     var rate: Double? {
         didSet {
             if let r = rate {
                 let numberFormatter = NumberFormatter()
-                numberFormatter.maximumFractionDigits = 5
+                numberFormatter.maximumFractionDigits = 3
                 let rateFormatter = numberFormatter.string(for: r)
-                dayRate.text = rateFormatter
+                dayRate.text = (rateFormatter ?? "") + " $"
             }
         }
     }
     
     // MARK: - Overrides
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         serviceRate = ExchangeService()
-        //getRate()
+        getRate()
     }
     
     // Keyboard disappear
@@ -49,7 +51,8 @@ class ExchangeViewController: UIViewController {
     }
     
     // MARK: - Functions
-    func getRate() {
+    
+    private func getRate() {
         serviceRate.getExchange { [weak self] result in
             DispatchQueue.main.async {
                 switch result {

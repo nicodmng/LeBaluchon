@@ -5,14 +5,14 @@
 //  Created by Nicolas Demange on 17/11/2021.
 //
 
-import Foundation
 import UIKit
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     // MARK: - IBOutlets & IBActions
-    @IBOutlet weak var GeCityTempLabel: UILabel!
-    @IBOutlet weak var NyCityTempLabel: UILabel!
+    
+    @IBOutlet weak var geCityTempLabel: UILabel!
+    @IBOutlet weak var nyCityTempLabel: UILabel!
     @IBOutlet weak var conditionGeLabel: UILabel!
     @IBOutlet weak var conditionNyLabel: UILabel!
     
@@ -22,131 +22,109 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var iconNyView: UIImageView!
     
     // MARK: - Let & Var
-    var serviceWeather = WeatherService()
+    
+    private let serviceWeather = WeatherService()
 
-    var temperatureGE: Double? {
+    private var temperatureGE: Double? {
         didSet {
             if let tempGE = temperatureGE {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.maximumFractionDigits = 0
                 let GeTemp = numberFormatter.string(for: tempGE)
-                GeCityTempLabel.text = GeTemp ?? "--" + "°"
-                GeCityTempLabel.isHidden = false
+                geCityTempLabel.text = (GeTemp ?? "") + "°"
+                geCityTempLabel.isHidden = false
                 loadingWeatherIndicator.isHidden = true
             }
         }
     }
     
-    var temperatureNY: Double? {
+    private var temperatureNY: Double? {
         didSet {
             if let tempNY = temperatureNY {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.maximumFractionDigits = 0
                 let NyTemp = numberFormatter.string(for: tempNY)
-                NyCityTempLabel.text = NyTemp
-                NyCityTempLabel.isHidden = false
+                nyCityTempLabel.text = (NyTemp ?? "") + "°"
+                nyCityTempLabel.isHidden = false
             }
         }
     }
     
-    var conditionWeatherGE: String? {
-        didSet {
-            if let conditionGE = conditionWeatherGE {
-                conditionGeLabel.text = conditionGE
-            }
-        }
-    }
-    
-    var conditionWeatherNY: String? {
-        didSet {
-            if let conditionNY = conditionWeatherNY {
-                conditionNyLabel.text = conditionNY
-            }
-        }
-    }
-    
-    var conditionGeID: Int = 0
-    var conditionGeName: String {
+    private var conditionGeID: Int = 0
+    private var conditionGeName: String {
         switch conditionGeID {
         case 200...232:
-            return "cloud.bolt"
+            return "cloud.bolt.fill"
         case 300...321:
-            return "cloud.drizzle"
+            return "cloud.drizzle.fill"
         case 500...531:
-            return "cloud.rain"
+            return "cloud.rain.fill"
         case 600...622:
-            return "cloud.snow"
+            return "cloud.snow.fill"
         case 800:
-            return "sun.max"
+            return "sun.max.fill"
         case 801...804:
-            return "cloud"
+            return "cloud.fill"
         default:
-            return "cloud"
+            return "cloud.fill"
         }
     }
     
-    var conditionNyID: Int = 0
-    var conditionNyName: String {
+    private var conditionNyID: Int = 0
+    private var conditionNyName: String {
         switch conditionNyID {
         case 200...232:
-            return "cloud.bolt"
+            return "cloud.bolt.fill"
         case 300...321:
-            return "cloud.drizzle"
+            return "cloud.drizzle.fill"
         case 500...531:
-            return "cloud.rain"
+            return "cloud.rain.fill"
         case 600...622:
-            return "cloud.snow"
+            return "cloud.snow.fill"
         case 800:
-            return "sun.max"
+            return "sun.max.fill"
         case 801...804:
-            return "cloud"
+            return "cloud.fill"
         default:
-            return "cloud"
+            return "cloud.fill"
         }
     }
     
     // MARK: - Override
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.GeCityTempLabel.isHidden = true
-        self.NyCityTempLabel.isHidden = true
+        self.geCityTempLabel.isHidden = true
+        self.nyCityTempLabel.isHidden = true
         self.loadingWeatherIndicator.isHidden = false
         self.loadingWeatherIndicator.startAnimating()
         getDataWeather()
     }
     
     // MARK: - Functions
-    func getDataWeather() {
-        self.serviceWeather.getWeather() { result in
+    
+    private func getDataWeather() {
+        self.serviceWeather.getWeather() { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weather):
-                    self.temperatureGE = weather.list[0].main.temp
-                    self.conditionWeatherGE = weather.list[0].weather[0].main
-                    self.temperatureNY = weather.list[1].main.temp
-                    self.conditionWeatherNY = weather.list[1].weather[0].main
-                    self.conditionGeID = weather.list[0].weather[0].id
-                    self.conditionNyID = weather.list[1].weather[0].id
-                    self.iconGeView.image = UIImage(systemName: self.conditionGeName)
-                    self.iconNyView.image = UIImage(systemName: self.conditionNyName)
+                    self?.temperatureGE = weather.list[0].main.temp
+                    self?.temperatureNY = weather.list[1].main.temp
+                    
+                    self?.conditionGeLabel.text = weather.list[0].weather[0].main
+                    self?.conditionNyLabel.text = weather.list[1].weather[0].main
+                    
+                    self?.conditionGeID = weather.list[0].weather[0].id
+                    self?.conditionNyID = weather.list[1].weather[0].id
+                    
+                    self?.iconGeView.image = UIImage(systemName: self!.conditionGeName)
+                    self?.iconNyView.image = UIImage(systemName: self!.conditionNyName)
+                    
                 case .failure(let error):
-                    self.showAlert(message: error.description)
+                    self?.showAlert(message: error.description)
                 }
             }
         }
     }
 }
 // End of class
-
-// MARK: - Extensions
-extension UIView {
-  @IBInspectable var cornerRadius: CGFloat {
-   get{
-        return layer.cornerRadius
-    }
-    set {
-        layer.cornerRadius = newValue
-        layer.masksToBounds = newValue > 0
-    }
-  }
-}

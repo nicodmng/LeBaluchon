@@ -4,12 +4,12 @@
 //
 //  Created by Nicolas Demange on 17/11/2021.
 //
-
 import Foundation
 
 class ExchangeService {
     
     // MARK: - Let & Var
+    
     private let session: URLSession
 
     init(session: URLSession = URLSession(configuration: .default)) {

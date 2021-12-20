@@ -4,12 +4,12 @@
 //
 //  Created by Nicolas Demange on 18/11/2021.
 //
-
 import Foundation
 
 class WeatherService {
     
     // MARK: - Let & Var
+    
     private let session: URLSession
     
     init(session: URLSession = URLSession(configuration: .default)) {
