@@ -18,7 +18,8 @@ class ExchangeViewController: UIViewController {
     
     @IBAction func textFieldChange(_ sender: UITextField) {
         if let r = rate, let text = sender.text, let d = Double(text) {
-            resultLabel.text = "\(d * r)"
+            let result = String(d * r)
+            resultLabel.text = result
         }
     }
     
