@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="METEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2P-ct-LbH" userLabel="Title Page Label">
-                                <rect key="frame" x="20" y="69" width="139.66666666666666" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="METEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2P-ct-LbH" userLabel="Title Page Label">
+                                <rect key="frame" x="20" y="69" width="140.66666666666666" height="49"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="39"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -312,7 +312,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRADUCTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvg-NY-Gbf" userLabel="Title Page Label">
-                                <rect key="frame" x="20" y="65" width="269.66666666666669" height="49"/>
+                                <rect key="frame" x="20" y="69" width="269.66666666666669" height="49"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="39"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -391,7 +391,7 @@
                         <color key="backgroundColor" red="0.27058823529411763" green="0.38433754440000001" blue="0.40778911109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qvg-NY-Gbf" firstAttribute="leading" secondItem="vIp-r0-4cx" secondAttribute="leading" constant="20" id="7Kt-vm-yzG"/>
-                            <constraint firstItem="qvg-NY-Gbf" firstAttribute="top" secondItem="vIp-r0-4cx" secondAttribute="top" constant="21" id="ci1-h0-aVc"/>
+                            <constraint firstItem="qvg-NY-Gbf" firstAttribute="top" secondItem="vIp-r0-4cx" secondAttribute="top" constant="25" id="uOC-V6-EyT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="bubble.left.and.bubble.right.fill" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="2BL-xr-Oj2"/>
