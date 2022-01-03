@@ -19,5 +19,5 @@ Ce projet fait suite à la formation d'OpenClassRooms de "Développeur d'applica
  
 ![conversion](https://user-images.githubusercontent.com/78477762/147921192-da156e0d-5c6c-41e6-a764-c7c43e803bc5.png)
 ![meteo](https://user-images.githubusercontent.com/78477762/147921303-f735f51c-0315-432a-8fb1-420039075607.png)
-
- <hr>
+![traduction](https://user-images.githubusercontent.com/78477762/147921366-3e1cb1ca-5c9c-4cf9-9125-332307238fe6.png)
+<hr>
