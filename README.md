@@ -16,5 +16,5 @@ Ce projet fait suite à la formation d'OpenClassRooms de "Développeur d'applica
 <hr>
 <h3>Images en mode Portrait</h3>
 <p>
-
+![conversion](https://user-images.githubusercontent.com/78477762/147920609-2db1fe01-1514-40d7-ba9c-85d7d84d1299.png)
  <hr>
