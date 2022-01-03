@@ -16,3 +16,5 @@ Ce projet fait suite à la formation d'OpenClassRooms de "Développeur d'applica
 <hr>
 <h3>Images en mode Portrait</h3>
 <p>
+
+ <hr>
